@@ -2,33 +2,29 @@
   <defs>
     <style>
       .logo-shape { fill: #1d4ed8; }
-      .logo-lines { stroke: #60a5fa; fill: none; }
+      .logo-accent { fill: #60a5fa; }
+      .logo-highlight { fill: #93c5fd; }
       .logo-text-dark { fill: #1d4ed8; font-family: 'Segoe UI', system-ui, sans-serif; font-size: 48px; font-weight: 700; letter-spacing: -1px; }
     </style>
   </defs>
-  
+
   <!-- Logo icon -->
-  <g>
-    <!-- Background circle -->
-    <circle cx="50" cy="50" r="45" class="logo-shape"/>
-    
-    <!-- Tech arrow -->
-    <g class="logo-lines" stroke-width="3" stroke-linecap="round">
-      <line x1="32" y1="30" x2="32" y2="70"/>
-      <line x1="50" y1="22" x2="50" y2="78"/>
-      <line x1="68" y1="35" x2="68" y2="65"/>
-      <line x1="32" y1="50" x2="50" y2="50"/>
-      <line x1="50" y1="42" x2="68" y2="42"/>
-    </g>
-    
-    <!-- Arrow head -->
-    <polygon points="68,42 80,50 68,58" class="logo-lines" stroke="none" fill="#60a5fa"/>
-    
-    <!-- Connection dots -->
-    <circle cx="32" cy="50" r="3" fill="#60a5fa"/>
-    <circle cx="50" cy="50" r="3" fill="#60a5fa"/>
+  <g transform="translate(50,50)">
+    <!-- Hexagon base -->
+    <polygon points="0,-30 26,-15 26,15 0,30 -26,15 -26,-15" class="logo-shape" opacity="0.9"/>
+
+    <!-- Inner hexagon -->
+    <polygon points="0,-17.5 15,-8.75 15,8.75 0,17.5 -15,8.75 -15,-8.75" class="logo-accent" opacity="0.8"/>
+
+    <!-- Center dot -->
+    <circle cx="0" cy="0" r="4" class="logo-highlight"/>
+
+    <!-- Connecting lines -->
+    <line x1="-15" y1="-8.75" x2="15" y2="8.75" stroke="#93c5fd" stroke-width="1.5" opacity="0.6"/>
+    <line x1="15" y1="-8.75" x2="-15" y2="8.75" stroke="#93c5fd" stroke-width="1.5" opacity="0.6"/>
+    <line x1="0" y1="-17.5" x2="0" y2="17.5" stroke="#93c5fd" stroke-width="1.5" opacity="0.6"/>
   </g>
-  
+
   <!-- Text -->
   <text x="120" y="65" class="logo-text-dark">MyTechArea</text>
 </svg>

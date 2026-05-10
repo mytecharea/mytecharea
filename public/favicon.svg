@@ -3,19 +3,24 @@
     <style>
       .favicon-bg { fill: #1d4ed8; }
       .favicon-accent { fill: #60a5fa; }
+      .favicon-highlight { fill: #93c5fd; }
     </style>
   </defs>
-  
-  <!-- Background circle -->
-  <circle cx="32" cy="32" r="32" class="favicon-bg"/>
-  
-  <!-- Simplified tech arrow -->
-  <g class="favicon-accent">
-    <line x1="16" y1="24" x2="16" y2="40" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round"/>
-    <line x1="32" y1="20" x2="32" y2="44" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round"/>
-    <line x1="48" y1="26" x2="48" y2="38" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round"/>
-    <line x1="16" y1="32" x2="32" y2="32" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round"/>
-    <line x1="32" y1="28" x2="48" y2="28" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round"/>
-    <polygon points="48,28 56,32 48,36" class="favicon-accent"/>
+
+  <!-- Main geometric shape -->
+  <g transform="translate(32,32)">
+    <!-- Hexagon base -->
+    <polygon points="0,-19 16,-9.5 16,9.5 0,19 -16,9.5 -16,-9.5" class="favicon-bg" opacity="0.9"/>
+
+    <!-- Inner hexagon -->
+    <polygon points="0,-11 9.5,-5.5 9.5,5.5 0,11 -9.5,5.5 -9.5,-5.5" class="favicon-accent" opacity="0.8"/>
+
+    <!-- Center dot -->
+    <circle cx="0" cy="0" r="2.5" class="favicon-highlight"/>
+
+    <!-- Connecting lines -->
+    <line x1="-9.5" y1="-5.5" x2="9.5" y2="5.5" stroke="#93c5fd" stroke-width="0.8" opacity="0.6"/>
+    <line x1="9.5" y1="-5.5" x2="-9.5" y2="5.5" stroke="#93c5fd" stroke-width="0.8" opacity="0.6"/>
+    <line x1="0" y1="-11" x2="0" y2="11" stroke="#93c5fd" stroke-width="0.8" opacity="0.6"/>
   </g>
 </svg>

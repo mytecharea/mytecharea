@@ -3,34 +3,24 @@
     <style>
       .logo-bg { fill: #1d4ed8; }
       .logo-accent { fill: #60a5fa; }
-      .logo-text { fill: #ffffff; font-family: 'Segoe UI', system-ui, sans-serif; font-weight: 700; }
+      .logo-highlight { fill: #93c5fd; }
     </style>
   </defs>
-  
-  <!-- Background circle -->
-  <circle cx="100" cy="100" r="100" class="logo-bg"/>
-  
-  <!-- Tech element: Circuit lines forming a forward arrow -->
-  <g class="logo-accent" opacity="0.9">
-    <!-- Left vertical line -->
-    <line x1="60" y1="70" x2="60" y2="130" stroke="#60a5fa" stroke-width="4" stroke-linecap="round"/>
-    
-    <!-- Middle vertical line -->
-    <line x1="100" y1="60" x2="100" y2="140" stroke="#60a5fa" stroke-width="4" stroke-linecap="round"/>
-    
-    <!-- Right vertical line -->
-    <line x1="140" y1="75" x2="140" y2="125" stroke="#60a5fa" stroke-width="4" stroke-linecap="round"/>
-    
-    <!-- Horizontal connections -->
-    <line x1="60" y1="100" x2="100" y2="100" stroke="#60a5fa" stroke-width="4" stroke-linecap="round"/>
-    <line x1="100" y1="90" x2="140" y2="90" stroke="#60a5fa" stroke-width="4" stroke-linecap="round"/>
-    
-    <!-- Forward arrow -->
-    <polygon points="140,90 155,100 140,110" class="logo-accent"/>
+
+  <!-- Main geometric shape -->
+  <g transform="translate(100,100)">
+    <!-- Hexagon base -->
+    <polygon points="0,-60 52,-30 52,30 0,60 -52,30 -52,-30" class="logo-bg" opacity="0.9"/>
+
+    <!-- Inner hexagon -->
+    <polygon points="0,-35 30,-17.5 30,17.5 0,35 -30,17.5 -30,-17.5" class="logo-accent" opacity="0.8"/>
+
+    <!-- Center dot -->
+    <circle cx="0" cy="0" r="8" class="logo-highlight"/>
+
+    <!-- Connecting lines -->
+    <line x1="-30" y1="-17.5" x2="30" y2="17.5" stroke="#93c5fd" stroke-width="2" opacity="0.6"/>
+    <line x1="30" y1="-17.5" x2="-30" y2="17.5" stroke="#93c5fd" stroke-width="2" opacity="0.6"/>
+    <line x1="0" y1="-35" x2="0" y2="35" stroke="#93c5fd" stroke-width="2" opacity="0.6"/>
   </g>
-  
-  <!-- Connection nodes -->
-  <circle cx="60" cy="100" r="5" class="logo-accent"/>
-  <circle cx="100" cy="100" r="5" class="logo-accent"/>
-  <circle cx="140" cy="90" r="5" class="logo-accent"/>
 </svg>
