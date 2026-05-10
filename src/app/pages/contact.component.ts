@@ -24,6 +24,12 @@ import { Component } from '@angular/core';
             </svg>
             WhatsApp Me
           </a>
+          <a href="tel:+919606472035" class="btn btn-call">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2A19.86 19.86 0 012 5.18 2 2 0 014 3h3a2 2 0 012 1.72 12.05 12.05 0 00.7 3.19 2 2 0 01-.45 2.11L8.09 10.91a16 16 0 007 7l1.92-1.92a2 2 0 012.11-.45 12.05 12.05 0 003.19.7A2 2 0 0122 16.92z"/>
+            </svg>
+            Call Me
+          </a>
         </div>
       </section>
     </div>
@@ -110,6 +116,15 @@ import { Component } from '@angular/core';
 
       .btn-whatsapp:hover {
         background: #128c7e;
+      }
+
+      .btn-call {
+        background: #0f766e;
+        color: #ffffff;
+      }
+
+      .btn-call:hover {
+        background: #064e3b;
       }
 
       .btn-icon {
