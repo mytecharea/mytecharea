@@ -81,26 +81,22 @@ import { Component } from '@angular/core';
       }
 
       .about-content {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        grid-template-rows: auto 1fr;
-        gap: 2rem;
-        align-items: start;
+        position: relative;
+        padding-top: 2rem;
       }
 
       .profile-image {
-        grid-column: 2;
-        grid-row: 1;
-        display: flex;
-        justify-content: flex-end;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 10;
       }
 
       .text-section {
-        grid-column: 1;
-        grid-row: 1 / -1;
         display: flex;
         flex-direction: column;
         gap: 2rem;
+        margin-right: 220px; /* Space for the image */
       }
 
       .profile-pic {
@@ -162,20 +158,19 @@ import { Component } from '@angular/core';
 
       @media (max-width: 1024px) {
         .about-content {
-          grid-template-columns: 1fr;
-          grid-template-rows: auto auto auto;
-          gap: 2rem;
+          position: static;
+          padding-top: 0;
         }
 
         .profile-image {
-          grid-column: 1;
-          grid-row: 1;
+          position: static;
+          display: flex;
           justify-content: center;
+          margin-bottom: 2rem;
         }
 
         .text-section {
-          grid-column: 1;
-          grid-row: 2;
+          margin-right: 0;
         }
 
         .profile-pic {
