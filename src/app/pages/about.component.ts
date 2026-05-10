@@ -11,31 +11,31 @@ import { Component } from '@angular/core';
           <h2>Experienced, detail-driven, and ready to deliver.</h2>
         </div>
         <div class="about-content">
-          <div class="profile-section">
-            <div class="profile-image">
-              <img src="profile.jpg" alt="Niraj's Profile Picture" class="profile-pic">
-            </div>
+          <div class="profile-image">
+            <img src="profile.jpg" alt="Niraj's Profile Picture" class="profile-pic">
+          </div>
+          <div class="text-section">
             <div class="profile-text">
               <p>
                 I help businesses move from concept to launch with web experiences that feel modern, reliable, and easy to use.
                 My process combines strong UI design with clean, maintainable front-end implementation.
               </p>
             </div>
-          </div>
-          <div class="skills-section">
-            <h3>My Expertise</h3>
-            <div class="about-list">
-              <div>
-                <strong>Design System</strong>
-                <span>Consistent brand-first interfaces.</span>
-              </div>
-              <div>
-                <strong>Responsive Build</strong>
-                <span>Mobile-ready websites and apps.</span>
-              </div>
-              <div>
-                <strong>Performance</strong>
-                <span>Fast-loading pages with polished interactions.</span>
+            <div class="skills-section">
+              <h3>My Expertise</h3>
+              <div class="about-list">
+                <div>
+                  <strong>Design System</strong>
+                  <span>Consistent brand-first interfaces.</span>
+                </div>
+                <div>
+                  <strong>Responsive Build</strong>
+                  <span>Mobile-ready websites and apps.</span>
+                </div>
+                <div>
+                  <strong>Performance</strong>
+                  <span>Fast-loading pages with polished interactions.</span>
+                </div>
               </div>
             </div>
           </div>
@@ -82,20 +82,25 @@ import { Component } from '@angular/core';
 
       .about-content {
         display: grid;
-        gap: 3rem;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr auto;
+        grid-template-rows: auto 1fr;
+        gap: 2rem;
         align-items: start;
       }
 
-      .profile-section {
+      .profile-image {
+        grid-column: 2;
+        grid-row: 1;
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .text-section {
+        grid-column: 1;
+        grid-row: 1 / -1;
         display: flex;
         flex-direction: column;
         gap: 2rem;
-      }
-
-      .profile-image {
-        display: flex;
-        justify-content: center;
       }
 
       .profile-pic {
@@ -158,17 +163,19 @@ import { Component } from '@angular/core';
       @media (max-width: 1024px) {
         .about-content {
           grid-template-columns: 1fr;
+          grid-template-rows: auto auto auto;
           gap: 2rem;
-        }
-
-        .profile-section {
-          flex-direction: row;
-          gap: 2rem;
-          align-items: center;
         }
 
         .profile-image {
-          flex-shrink: 0;
+          grid-column: 1;
+          grid-row: 1;
+          justify-content: center;
+        }
+
+        .text-section {
+          grid-column: 1;
+          grid-row: 2;
         }
 
         .profile-pic {
@@ -182,18 +189,17 @@ import { Component } from '@angular/core';
           padding: 2.5rem 1.5rem;
         }
 
-        .profile-section {
-          flex-direction: column;
-          gap: 1.5rem;
-        }
-
         .profile-pic {
           width: 120px;
           height: 120px;
         }
 
         .about-content {
-          gap: 2rem;
+          gap: 1.5rem;
+        }
+
+        .text-section {
+          gap: 1.5rem;
         }
       }
 
