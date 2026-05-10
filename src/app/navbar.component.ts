@@ -7,7 +7,10 @@ import { RouterLink } from '@angular/router';
   imports: [RouterLink],
   template: `
     <header class="topbar">
-      <div class="brand">MyTechArea</div>
+      <a routerLink="/" class="brand">
+        <img src="favicon.svg" alt="MyTechArea Logo" class="logo-icon">
+        <span>MyTechArea</span>
+      </a>
       <nav class="nav-links">
         <a routerLink="/">Home</a>
         <a routerLink="/portfolio">My Portfolio</a>
@@ -33,10 +36,25 @@ import { RouterLink } from '@angular/router';
       }
 
       .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
         font-size: 1rem;
         font-weight: 700;
         letter-spacing: 0.12em;
         text-transform: uppercase;
+        color: #0f172a;
+        text-decoration: none;
+      }
+
+      .logo-icon {
+        width: 32px;
+        height: 32px;
+        display: block;
+      }
+
+      .brand:hover {
+        opacity: 0.8;
       }
 
       .nav-links {
