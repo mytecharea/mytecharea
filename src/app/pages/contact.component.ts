@@ -367,32 +367,33 @@ export class ContactComponent {
 
     const formData = this.contactForm.value;
 
-    // Simulate sending email (in real app, call backend API)
+    // Format message for WhatsApp
+    const whatsappMessage = `*New Contact Form Submission*\n\n` +
+      `*Name:* ${formData.name}\n` +
+      `*Email:* ${formData.email}\n` +
+      `*Subject:* ${formData.subject}\n\n` +
+      `*Message:*\n${formData.message}`;
+
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+
+    // Simulate processing, then send to WhatsApp
     setTimeout(() => {
-      // Simulate success
       this.isSubmitting.set(false);
       this.submitSuccess.set(true);
 
       // Reset form
       this.contactForm.reset();
 
+      // Open WhatsApp with the message
+      window.open(
+        `https://wa.me/919606472035?text=${encodedMessage}`,
+        '_blank'
+      );
+
       // Hide success message after 5 seconds
       setTimeout(() => {
         this.submitSuccess.set(false);
       }, 5000);
-
-      // TODO: In production, replace this with actual email service call:
-      // this.emailService.sendContactForm(formData).subscribe(
-      //   () => {
-      //     this.isSubmitting.set(false);
-      //     this.submitSuccess.set(true);
-      //     this.contactForm.reset();
-      //   },
-      //   (error) => {
-      //     this.isSubmitting.set(false);
-      //     this.submitError.set('Failed to send message. Please try again.');
-      //   }
-      // );
-    }, 1500);
+    }, 800);
   }
 }
