@@ -4,206 +4,227 @@ import { Component } from '@angular/core';
   selector: 'about-page',
   standalone: true,
   template: `
-    <div class="page-container">
-      <section class="section section-white">
-        <div class="section-header">
-          <p class="section-label">About Me</p>
-          <h2>Experienced, detail-driven, and ready to deliver.</h2>
-        </div>
-        <div class="about-content">
-          <div class="profile-image">
-            <img src="profile.jpg" alt="Niraj's Profile Picture" class="profile-pic">
-          </div>
-          <div class="text-section">
-            <div class="profile-text">
-              <p>
-                I help businesses move from concept to launch with web experiences that feel modern, reliable, and easy to use.
-                My process combines strong UI design with clean, maintainable front-end implementation.
-              </p>
-            </div>
-            <div class="skills-section">
-              <h3>My Expertise</h3>
-              <div class="about-list">
-                <div>
-                  <strong>Design System</strong>
-                  <span>Consistent brand-first interfaces.</span>
-                </div>
-                <div>
-                  <strong>Responsive Build</strong>
-                  <span>Mobile-ready websites and apps.</span>
-                </div>
-                <div>
-                  <strong>Performance</strong>
-                  <span>Fast-loading pages with polished interactions.</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+  <section class="bg-slate-950 text-white min-h-screen py-24 px-6">
+
+  <div class="max-w-7xl mx-auto">
+
+    <!-- Heading -->
+    <div class="text-center mb-20">
+
+      <h2 class="text-4xl md:text-5xl font-bold mb-5">
+        About Me
+      </h2>
+
+      <p class="text-slate-400 text-lg max-w-3xl mx-auto leading-8">
+        Passionate about building modern web experiences,
+        responsive applications, and continuously learning
+        cloud and frontend technologies.
+      </p>
+
     </div>
+
+    <!-- About Section -->
+    <div
+      class="grid grid-cols-1 lg:grid-cols-[0.9fr_1.3fr] gap-16 items-start"
+    >
+
+      <!-- Left Image -->
+      <div class="flex justify-center">
+
+        <div
+          class="relative w-[280px] h-[280px] md:w-[340px] md:h-[340px]"
+        >
+
+          <!-- Glow -->
+          <div
+            class="absolute inset-0 bg-cyan-500/20 rounded-full blur-[90px]"
+          ></div>
+
+          <!-- Image Card -->
+          <div
+            class="relative bg-slate-900 border border-slate-800 rounded-[30px] overflow-hidden p-4 shadow-2xl"
+          >
+
+            <img
+              src="/profile/profile.jpg"
+              alt="Profile"
+              class="rounded-[24px] w-full h-full object-cover"
+            />
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Right Content -->
+      <div>
+
+        <span
+          class="bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 px-5 py-2 rounded-full text-sm"
+        >
+          Software Engineer • Angular • AWS • Terraform
+        </span>
+
+        <h3
+          class="text-3xl md:text-4xl font-bold mt-8 mb-6"
+        >
+          Hi, I'm
+          <span class="text-cyan-400">
+            Niraj Kumar
+          </span>
+        </h3>
+
+        <p
+          class="text-slate-400 text-lg leading-8 mb-6"
+        >
+          I am a passionate Software Engineer focused on
+          frontend development and cloud technologies.
+          I enjoy building modern, responsive, and scalable
+          web applications using Angular, TypeScript,
+          HTML, CSS, and Tailwind CSS.
+        </p>
+
+        <p
+          class="text-slate-400 text-lg leading-8 mb-10"
+        >
+          Currently exploring AWS and Terraform to improve
+          cloud deployment and infrastructure automation
+          skills. I believe in continuous learning and
+          building practical real-world projects to grow
+          technically and professionally.
+        </p>
+
+        <!-- Technologies -->
+        <div class="mb-10">
+
+          <h4 class="text-xl font-semibold mb-5">
+            Technologies I Work With
+          </h4>
+
+          <div class="flex flex-wrap gap-4">
+
+            <span
+              class="bg-slate-900 border border-slate-800 px-4 py-2 rounded-xl text-slate-300"
+            >
+              Angular
+            </span>
+
+            <span
+              class="bg-slate-900 border border-slate-800 px-4 py-2 rounded-xl text-slate-300"
+            >
+              TypeScript
+            </span>
+
+            <span
+              class="bg-slate-900 border border-slate-800 px-4 py-2 rounded-xl text-slate-300"
+            >
+              JavaScript
+            </span>
+
+            <span
+              class="bg-slate-900 border border-slate-800 px-4 py-2 rounded-xl text-slate-300"
+            >
+              HTML
+            </span>
+
+            <span
+              class="bg-slate-900 border border-slate-800 px-4 py-2 rounded-xl text-slate-300"
+            >
+              CSS
+            </span>
+
+            <span
+              class="bg-slate-900 border border-slate-800 px-4 py-2 rounded-xl text-slate-300"
+            >
+              Tailwind
+            </span>
+
+            <span
+              class="bg-slate-900 border border-slate-800 px-4 py-2 rounded-xl text-slate-300"
+            >
+              AWS
+            </span>
+
+            <span
+              class="bg-slate-900 border border-slate-800 px-4 py-2 rounded-xl text-slate-300"
+            >
+              Terraform
+            </span>
+
+            <span
+              class="bg-slate-900 border border-slate-800 px-4 py-2 rounded-xl text-slate-300"
+            >
+              GitHub
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Journey Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-24">
+
+      <!-- Card 1 -->
+      <div
+        class="bg-slate-900 border border-slate-800 rounded-3xl p-8 hover:border-cyan-500 transition duration-300"
+      >
+
+        <h3 class="text-2xl font-semibold mb-4">
+          Frontend Development
+        </h3>
+
+        <p class="text-slate-400 leading-8">
+          Building modern responsive web applications
+          using Angular and TypeScript with focus
+          on clean UI and scalability.
+        </p>
+
+      </div>
+
+      <!-- Card 2 -->
+      <div
+        class="bg-slate-900 border border-slate-800 rounded-3xl p-8 hover:border-cyan-500 transition duration-300"
+      >
+
+        <h3 class="text-2xl font-semibold mb-4">
+          Cloud Learning
+        </h3>
+
+        <p class="text-slate-400 leading-8">
+          Learning AWS services including S3,
+          CloudFront, Route53, EC2 and cloud
+          deployment strategies.
+        </p>
+
+      </div>
+
+      <!-- Card 3 -->
+      <div
+        class="bg-slate-900 border border-slate-800 rounded-3xl p-8 hover:border-cyan-500 transition duration-300"
+      >
+
+        <h3 class="text-2xl font-semibold mb-4">
+          DevOps Basics
+        </h3>
+
+        <p class="text-slate-400 leading-8">
+          Exploring Terraform, infrastructure
+          automation, and CI/CD concepts
+          through practical learning.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
   `,
-  styles: [
-    `
-      .page-container {
-        background: #f8fafc;
-        color: #0f172a;
-        min-height: calc(100vh - 84px);
-        font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      }
 
-      .section {
-        padding: 4rem 2rem;
-      }
-
-      .section-white {
-        background: #ffffff;
-      }
-
-      .section-header {
-        max-width: 48rem;
-        margin-bottom: 2rem;
-      }
-
-      .section-label {
-        margin: 0 0 0.75rem;
-        color: #2563eb;
-        font-size: 0.85rem;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        font-weight: 700;
-      }
-
-      .section-header h2 {
-        margin: 0;
-        font-size: clamp(2rem, 3vw, 2.75rem);
-        line-height: 1.1;
-      }
-
-      .about-content {
-        position: relative;
-        padding-top: 2rem;
-      }
-
-      .profile-image {
-        position: absolute;
-        top: 0;
-        right: 0;
-        z-index: 10;
-      }
-
-      .text-section {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-        margin-right: 220px; /* Space for the image */
-      }
-
-      .profile-pic {
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 4px solid #e2e8f0;
-        box-shadow: 0 20px 40px rgba(15, 23, 42, 0.1);
-        transition: transform 0.3s ease;
-      }
-
-      .profile-pic:hover {
-        transform: scale(1.05);
-      }
-
-      .profile-text p {
-        margin: 0;
-        color: #475569;
-        line-height: 1.85;
-        font-size: 1.1rem;
-      }
-
-      .skills-section h3 {
-        margin: 0 0 1.5rem;
-        font-size: 1.5rem;
-        color: #0f172a;
-      }
-
-      .about-list {
-        display: grid;
-        gap: 1rem;
-      }
-
-      .about-list > div {
-        padding: 1.25rem;
-        border-radius: 1.25rem;
-        background: #f8fafc;
-        border: 1px solid #e2e8f0;
-        transition: all 0.3s ease;
-      }
-
-      .about-list > div:hover {
-        border-color: #2563eb;
-        box-shadow: 0 10px 25px rgba(37, 99, 235, 0.1);
-      }
-
-      .about-list strong {
-        display: block;
-        margin-bottom: 0.5rem;
-        color: #0f172a;
-        font-size: 1rem;
-      }
-
-      .about-list span {
-        color: #64748b;
-        font-size: 0.9rem;
-      }
-
-      @media (max-width: 1024px) {
-        .about-content {
-          position: static;
-          padding-top: 0;
-        }
-
-        .profile-image {
-          position: static;
-          display: flex;
-          justify-content: center;
-          margin-bottom: 2rem;
-        }
-
-        .text-section {
-          margin-right: 0;
-        }
-
-        .profile-pic {
-          width: 150px;
-          height: 150px;
-        }
-      }
-
-      @media (max-width: 760px) {
-        .section {
-          padding: 2.5rem 1.5rem;
-        }
-
-        .profile-pic {
-          width: 120px;
-          height: 120px;
-        }
-
-        .about-content {
-          gap: 1.5rem;
-        }
-
-        .text-section {
-          gap: 1.5rem;
-        }
-      }
-
-      @media (max-width: 760px) {
-        .about-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-    `
-  ]
 })
 export class AboutComponent {}

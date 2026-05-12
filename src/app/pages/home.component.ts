@@ -6,141 +6,266 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [RouterLink],
   template: `
-    <div class="home-page">
-      <main>
-        <section class="hero">
-          <div class="hero-copy">
-            <p class="eyebrow">Professional Web Experience</p>
-            <h1>Modern digital products with clarity, speed, and polish.</h1>
-            <p>
-              I build clean, user-focused interfaces that help brands connect with customers and grow fast.
-            </p>
-            <div class="hero-actions">
-              <a routerLink="/portfolio" class="btn btn-primary">View Work</a>
-              <a routerLink="/contact" class="btn btn-secondary">Get in Touch</a>
-            </div>
+<section class="bg-slate-950 text-white">
+
+  <!-- HERO SECTION -->
+  <section class="min-h-screen flex items-center px-6 py-20">
+    <div
+     class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1.4fr_0.8fr] gap-12 items-start"
+    >
+
+      <!-- LEFT CONTENT -->
+      <div>
+
+        <!-- Top Banner -->
+        <div
+          class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-base font-medium mb-8 shadow-lg"
+        >
+          <span
+            class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"
+          ></span>
+
+          Frontend Developer • Angular • AWS • Terraform
+        </div>
+
+        <!-- Main Heading -->
+        <h1
+          class="text-3xl md:text-5xl font-bold leading-tight mb-6"
+        >
+          Hi, I'm
+          <span class="text-cyan-400">
+            Niraj Kumar
+          </span>
+
+          <br />
+
+          Building Modern &
+          <span class="text-cyan-400">
+            Responsive
+          </span>
+
+          Web Experiences
+        </h1>
+
+        <!-- Description -->
+        <p
+          class="text-slate-400 text-lg leading-8 mb-8 max-w-2xl"
+        >
+          Passionate Angular developer focused on building
+          responsive web applications, modern UI experiences,
+          and cloud-ready solutions using Angular, AWS,
+          TypeScript, and Terraform. Continuously learning and
+          building real-world projects to improve frontend and
+          cloud development skills.
+        </p>
+
+        <!-- BUTTONS -->
+        <div class="flex flex-wrap gap-5 mb-10">
+
+          <a
+            routerLink="/projects"
+            class="bg-cyan-500 hover:bg-cyan-600 text-white px-7 py-4 rounded-2xl font-semibold transition duration-300 shadow-lg hover:scale-105"
+          >
+            View Projects
+          </a>
+
+          <a
+            routerLink="/contact"
+            class="border border-slate-700 hover:border-cyan-500 px-7 py-4 rounded-2xl font-semibold transition duration-300 hover:bg-slate-900"
+          >
+            Contact Me
+          </a>
+
+        </div>
+
+        <!-- TECH STACK -->
+        <div class="flex flex-wrap gap-3">
+
+          <span
+            class="bg-slate-900 border border-slate-800 px-4 py-2 rounded-xl text-slate-300"
+          >
+            Angular
+          </span>
+
+          <span
+            class="bg-slate-900 border border-slate-800 px-4 py-2 rounded-xl text-slate-300"
+          >
+            AWS
+          </span>
+
+          <span
+            class="bg-slate-900 border border-slate-800 px-4 py-2 rounded-xl text-slate-300"
+          >
+            Terraform
+          </span>
+
+          <span
+            class="bg-slate-900 border border-slate-800 px-4 py-2 rounded-xl text-slate-300"
+          >
+            TypeScript
+          </span>
+
+          <span
+            class="bg-slate-900 border border-slate-800 px-4 py-2 rounded-xl text-slate-300"
+          >
+            Tailwind CSS
+          </span>
+
+          <span
+            class="bg-slate-900 border border-slate-800 px-4 py-2 rounded-xl text-slate-300"
+          >
+            GitHub
+          </span>
+
+        </div>
+      </div>
+
+      <!-- RIGHT IMAGE -->
+      <div class="flex justify-center">
+
+        <div
+          class="relative w-[260px] h-[260px] md:w-[340px] md:h-[340px]"
+        >
+
+          <!-- Glow -->
+          <div
+            class="absolute inset-0 bg-cyan-500/20 rounded-full blur-[100px]"
+          ></div>
+
+          <!-- Profile Card -->
+          <div
+            class="relative bg-slate-900 border border-slate-800 rounded-[40px] overflow-hidden shadow-2xl p-4"
+          >
+            <img
+              src="profile/profile.jpg"
+              alt="Profile"
+              class="rounded-[30px] w-full h-full object-cover"
+            />
           </div>
-          <div class="hero-card">
-            <div class="card-header">Featured Project</div>
-            <div class="card-body">
-              <h2>Product Design + Front-end</h2>
-              <p>Professional landing pages, app interfaces, and responsive web experiences for modern teams.</p>
-            </div>
-          </div>
-        </section>
-      </main>
+
+        </div>
+      </div>
+
     </div>
+  </section>
+
+  <!-- STATS SECTION -->
+  <section class="border-y border-slate-800 bg-slate-900 py-10">
+    <div class="max-w-7xl mx-auto px-6">
+
+      <div
+        class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
+      >
+
+        <div>
+          <h3 class="text-4xl font-bold text-cyan-400">
+            5+
+          </h3>
+
+          <p class="text-slate-400 mt-2">
+            Projects Built
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-4xl font-bold text-cyan-400">
+            Angular
+          </h3>
+
+          <p class="text-slate-400 mt-2">
+            Frontend Development
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-4xl font-bold text-cyan-400">
+            AWS
+          </h3>
+
+          <p class="text-slate-400 mt-2">
+            Cloud Learning
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-4xl font-bold text-cyan-400">
+            Terraform
+          </h3>
+
+          <p class="text-slate-400 mt-2">
+            Infrastructure as Code
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT I DO -->
+  <section class="py-24 px-6">
+    <div class="max-w-7xl mx-auto">
+
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold mb-4">
+          What I Do
+        </h2>
+
+        <p class="text-slate-400 text-lg">
+          Technologies and services I focus on.
+        </p>
+      </div>
+
+      <div
+        class="grid grid-cols-1 md:grid-cols-3 gap-8"
+      >
+
+        <!-- Card 1 -->
+        <div
+          class="bg-slate-900 border border-slate-800 rounded-3xl p-8 hover:border-cyan-500 transition duration-300"
+        >
+          <h3 class="text-2xl font-semibold mb-4">
+            Angular Development
+          </h3>
+
+          <p class="text-slate-400 leading-7">
+            Building responsive, modern and scalable web
+            applications using Angular and TypeScript.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div
+          class="bg-slate-900 border border-slate-800 rounded-3xl p-8 hover:border-cyan-500 transition duration-300"
+        >
+          <h3 class="text-2xl font-semibold mb-4">
+            Cloud Deployment
+          </h3>
+
+          <p class="text-slate-400 leading-7">
+            Deploying applications using AWS services like
+            S3, CloudFront and Route53.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div
+          class="bg-slate-900 border border-slate-800 rounded-3xl p-8 hover:border-cyan-500 transition duration-300"
+        >
+          <h3 class="text-2xl font-semibold mb-4">
+            Terraform Basics
+          </h3>
+
+          <p class="text-slate-400 leading-7">
+            Learning infrastructure automation and AWS
+            provisioning using Terraform.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</section>
   `,
-  styles: [
-    `
-      .home-page {
-        background: #f8fafc;
-        color: #0f172a;
-        min-height: calc(100vh - 84px);
-        font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      }
-
-      .hero {
-        display: grid;
-        grid-template-columns: 1.6fr 1fr;
-        gap: 2rem;
-        align-items: center;
-        padding: 4rem 2rem 6rem;
-      }
-
-      .hero-copy {
-        max-width: 42rem;
-      }
-
-      .eyebrow {
-        margin: 0 0 1rem;
-        color: #2563eb;
-        font-size: 0.85rem;
-        font-weight: 700;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-      }
-
-      .hero h1 {
-        margin: 0;
-        font-size: clamp(2.75rem, 5vw, 4.5rem);
-        line-height: 1.02;
-      }
-
-      .hero-copy p {
-        margin: 1.75rem 0 0;
-        font-size: 1.05rem;
-        line-height: 1.9;
-        color: #475569;
-      }
-
-      .hero-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        margin-top: 2.5rem;
-      }
-
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0.95rem 1.75rem;
-        border-radius: 999px;
-        font-weight: 600;
-        text-decoration: none;
-      }
-
-      .btn-primary {
-        background: #1d4ed8;
-        color: #ffffff;
-      }
-
-      .btn-secondary {
-        background: #e2e8f0;
-        color: #0f172a;
-      }
-
-      .hero-card {
-        padding: 2rem;
-        background: #ffffff;
-        border: 1px solid #e2e8f0;
-        border-radius: 1.5rem;
-        box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
-      }
-
-      .card-header {
-        text-transform: uppercase;
-        letter-spacing: 0.18em;
-        font-size: 0.75rem;
-        font-weight: 700;
-        color: #2563eb;
-        margin-bottom: 1.25rem;
-      }
-
-      .card-body h2 {
-        margin: 0 0 0.75rem;
-        font-size: 1.5rem;
-      }
-
-      .card-body p {
-        margin: 0;
-        color: #475569;
-        line-height: 1.75;
-      }
-
-      @media (max-width: 1024px) {
-        .hero {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      @media (max-width: 760px) {
-        .hero {
-          padding: 3rem 1.5rem 4rem;
-        }
-      }
-    `
-  ]
 })
 export class HomeComponent {}

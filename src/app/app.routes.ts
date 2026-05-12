@@ -4,12 +4,17 @@ import { PortfolioComponent } from './pages/portfolio.component';
 import { AboutComponent } from './pages/about.component';
 import { ContactComponent } from './pages/contact.component';
 import { BlogComponent } from './pages/blog.component';
+import { Skills } from './pages/skills/skills';
+import { Services } from './pages/services/services';
+import { Projects } from './pages/projects/projects';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'portfolio', component: PortfolioComponent },
+  { path: 'projects', component: Projects },
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'blog', component: BlogComponent },
-  { path: '**', redirectTo: '' }
+  { path: 'skills', component: Skills },
+  { path: 'services', component: Services },
+  { path: '**', redirectTo: '' },
 ];
