@@ -9,7 +9,7 @@ import { RouterLink } from '@angular/router';
     <header class="topbar">
       <a routerLink="/" class="brand">
         <img src="favicon.svg" alt="MyTechArea Logo" class="logo-icon">
-        <span>MyTechArea</span>
+       My Tech Area
       </a>
       <nav class="nav-links">
         <a routerLink="/" class="nav-item">
