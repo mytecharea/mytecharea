@@ -17,16 +17,9 @@ import { RouterLink } from '@angular/router';
       <!-- LEFT CONTENT -->
       <div>
 
-        <!-- Top Banner -->
-        <div
-          class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-base font-medium mb-8 shadow-lg"
-        >
-          <span
-            class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"
-          ></span>
-
-          Frontend Developer • Angular • AWS • Terraform
-        </div>
+       
+        
+       
 
         <!-- Main Heading -->
         <h1
@@ -39,24 +32,21 @@ import { RouterLink } from '@angular/router';
 
           <br />
 
-          Building Modern &
+          Senior Frontend Engineer
           <span class="text-cyan-400">
-            Responsive
+           
           </span>
 
-          Web Experiences
+         
         </h1>
 
         <!-- Description -->
         <p
           class="text-slate-400 text-lg leading-8 mb-8 max-w-2xl"
         >
-          Passionate Angular developer focused on building
-          responsive web applications, modern UI experiences,
-          and cloud-ready solutions using Angular, AWS,
-          TypeScript, and Terraform. Continuously learning and
-          building real-world projects to improve frontend and
-          cloud development skills.
+        I’m a Senior Frontend Engineer with 12+ years of experience building enterprise-grade web applications and modern user experiences. I specialize in Angular, TypeScript, RxJS, and responsive UI development, with hands-on experience in AWS, Terraform, and CI/CD.
+
+I focus on building scalable, maintainable, high-performance applications and delivering modern frontend solutions that are ready for the cloud.
         </p>
 
         <!-- BUTTONS -->
@@ -78,46 +68,7 @@ import { RouterLink } from '@angular/router';
 
         </div>
 
-        <!-- TECH STACK -->
-        <div class="flex flex-wrap gap-3">
-
-          <span
-            class="bg-slate-900 border border-slate-800 px-4 py-2 rounded-xl text-slate-300"
-          >
-            Angular
-          </span>
-
-          <span
-            class="bg-slate-900 border border-slate-800 px-4 py-2 rounded-xl text-slate-300"
-          >
-            AWS
-          </span>
-
-          <span
-            class="bg-slate-900 border border-slate-800 px-4 py-2 rounded-xl text-slate-300"
-          >
-            Terraform
-          </span>
-
-          <span
-            class="bg-slate-900 border border-slate-800 px-4 py-2 rounded-xl text-slate-300"
-          >
-            TypeScript
-          </span>
-
-          <span
-            class="bg-slate-900 border border-slate-800 px-4 py-2 rounded-xl text-slate-300"
-          >
-            Tailwind CSS
-          </span>
-
-          <span
-            class="bg-slate-900 border border-slate-800 px-4 py-2 rounded-xl text-slate-300"
-          >
-            GitHub
-          </span>
-
-        </div>
+        
       </div>
 
       <!-- RIGHT IMAGE -->
@@ -149,121 +100,7 @@ import { RouterLink } from '@angular/router';
     </div>
   </section>
 
-  <!-- STATS SECTION -->
-  <section class="border-y border-slate-800 bg-slate-900 py-10">
-    <div class="max-w-7xl mx-auto px-6">
 
-      <div
-        class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
-      >
-
-        <div>
-          <h3 class="text-4xl font-bold text-cyan-400">
-            5+
-          </h3>
-
-          <p class="text-slate-400 mt-2">
-            Projects Built
-          </p>
-        </div>
-
-        <div>
-          <h3 class="text-4xl font-bold text-cyan-400">
-            Angular
-          </h3>
-
-          <p class="text-slate-400 mt-2">
-            Frontend Development
-          </p>
-        </div>
-
-        <div>
-          <h3 class="text-4xl font-bold text-cyan-400">
-            AWS
-          </h3>
-
-          <p class="text-slate-400 mt-2">
-            Cloud Learning
-          </p>
-        </div>
-
-        <div>
-          <h3 class="text-4xl font-bold text-cyan-400">
-            Terraform
-          </h3>
-
-          <p class="text-slate-400 mt-2">
-            Infrastructure as Code
-          </p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- WHAT I DO -->
-  <section class="py-24 px-6">
-    <div class="max-w-7xl mx-auto">
-
-      <div class="text-center mb-16">
-        <h2 class="text-4xl font-bold mb-4">
-          What I Do
-        </h2>
-
-        <p class="text-slate-400 text-lg">
-          Technologies and services I focus on.
-        </p>
-      </div>
-
-      <div
-        class="grid grid-cols-1 md:grid-cols-3 gap-8"
-      >
-
-        <!-- Card 1 -->
-        <div
-          class="bg-slate-900 border border-slate-800 rounded-3xl p-8 hover:border-cyan-500 transition duration-300"
-        >
-          <h3 class="text-2xl font-semibold mb-4">
-            Angular Development
-          </h3>
-
-          <p class="text-slate-400 leading-7">
-            Building responsive, modern and scalable web
-            applications using Angular and TypeScript.
-          </p>
-        </div>
-
-        <!-- Card 2 -->
-        <div
-          class="bg-slate-900 border border-slate-800 rounded-3xl p-8 hover:border-cyan-500 transition duration-300"
-        >
-          <h3 class="text-2xl font-semibold mb-4">
-            Cloud Deployment
-          </h3>
-
-          <p class="text-slate-400 leading-7">
-            Deploying applications using AWS services like
-            S3, CloudFront and Route53.
-          </p>
-        </div>
-
-        <!-- Card 3 -->
-        <div
-          class="bg-slate-900 border border-slate-800 rounded-3xl p-8 hover:border-cyan-500 transition duration-300"
-        >
-          <h3 class="text-2xl font-semibold mb-4">
-            Terraform Basics
-          </h3>
-
-          <p class="text-slate-400 leading-7">
-            Learning infrastructure automation and AWS
-            provisioning using Terraform.
-          </p>
-        </div>
-
-      </div>
-    </div>
-  </section>
 
 </section>
   `,
