@@ -44,6 +44,20 @@ createBlog(blog: any): Observable<any> {
     this.apiUrl,
     blog
   );
+}
+getBlogById(id: string): Observable<any> {
+  return this.http.get(
+    `${this.apiUrl}/id/${id}`
+  );
+}
+updateBlog(
+  id: string,
+  blog: any
+): Observable<any> {
 
+  return this.http.put(
+    `${this.apiUrl}/${id}`,
+    blog
+  );
 }
 }

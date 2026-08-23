@@ -1,104 +1,60 @@
 <section class="blog-management">
-
   <!-- Header -->
 
   <div class="page-header">
-
     <div>
+      <a routerLink="/admin" class="back-dashboard"> ← Back to Dashboard </a>
+      <h1>Blog Articles</h1>
 
-      <span class="eyebrow">
-        CONTENT MANAGEMENT
-      </span>
-
-      <h1>
-        Blog Articles
-      </h1>
-
-      <p>
-        Create, edit and manage your MyTechArea articles.
-      </p>
-
+      <p>Create, edit and manage your MyTechArea articles.</p>
     </div>
 
-    <a
-      routerLink="/admin/blogs/create"
-      class="create-button"
-    >
-      + Create Blog
-    </a>
-
+    <a routerLink="/admin/blogs/create" class="create-button"> + Create Blog </a>
   </div>
-
 
   <!-- Error -->
 
   @if (errorMessage) {
-
     <div class="error-message">
       {{ errorMessage }}
     </div>
-
   }
-
 
   <!-- Loading -->
 
   @if (loading) {
-
-    <div class="loading">
-      Loading articles...
-    </div>
-
+    <div class="loading">Loading articles...</div>
   }
-
 
   <!-- Table -->
 
   @if (!loading) {
-
     <div class="blog-table">
-
       <div class="table-header">
-
         <span>ARTICLE</span>
         <span>CATEGORY</span>
         <span>AUTHOR</span>
         <span>STATUS</span>
         <span>DATE</span>
         <span>ACTIONS</span>
-
       </div>
 
-
       @for (blog of blogs; track blog._id) {
-
         <div class="table-row">
-
           <!-- Article -->
 
           <div class="article-info">
-
             <div class="article-image">
-
               @if (blog.featuredImage) {
-
-                <img
-                  [src]="blog.featuredImage"
-                  [alt]="blog.title"
-                />
-
+                <img [src]="blog.featuredImage" [alt]="blog.title" />
               } @else {
-
                 <span>
                   {{ blog.category?.charAt(0) }}
                 </span>
-
               }
-
             </div>
 
             <div>
-
               <strong>
                 {{ blog.title }}
               </strong>
@@ -106,11 +62,8 @@
               <small>
                 {{ blog.slug }}
               </small>
-
             </div>
-
           </div>
-
 
           <!-- Category -->
 
@@ -118,13 +71,11 @@
             {{ blog.category }}
           </span>
 
-
           <!-- Author -->
 
           <span class="author">
             {{ blog.author }}
           </span>
-
 
           <!-- Status -->
 
@@ -133,74 +84,38 @@
             [class.published]="blog.status === 'published'"
             [class.draft]="blog.status !== 'published'"
           >
-
             <i></i>
 
             {{ blog.status }}
-
           </span>
-
 
           <!-- Date -->
 
           <span class="date">
-
-            {{ blog.createdAt | date:'mediumDate' }}
-
+            {{ blog.createdAt | date: 'mediumDate' }}
           </span>
-
 
           <!-- Actions -->
 
           <div class="actions">
+            <a [routerLink]="['/admin/blogs/edit', blog._id]" class="edit-button"> Edit </a>
 
-            <a
-              [routerLink]="['/admin/blogs/edit', blog._id]"
-              class="edit-button"
-            >
-              Edit
-            </a>
-
-            <button
-              type="button"
-              class="delete-button"
-              (click)="deleteBlog(blog._id)"
-            >
+            <button type="button" class="delete-button" (click)="deleteBlog(blog._id)">
               Delete
             </button>
-
           </div>
-
         </div>
-
       }
-
 
       @if (blogs.length === 0) {
-
         <div class="empty-state">
+          <h2>No articles yet</h2>
 
-          <h2>
-            No articles yet
-          </h2>
+          <p>Create your first MyTechArea article.</p>
 
-          <p>
-            Create your first MyTechArea article.
-          </p>
-
-          <a
-            routerLink="/admin/blogs/create"
-            class="create-button"
-          >
-            + Create Blog
-          </a>
-
+          <a routerLink="/admin/blogs/create" class="create-button"> + Create Blog </a>
         </div>
-
       }
-
     </div>
-
   }
-
 </section>

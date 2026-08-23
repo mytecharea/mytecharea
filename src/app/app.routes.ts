@@ -65,5 +65,12 @@ export const routes: Routes = [
       './features/admin/pages/blog-create/blog-create'
     ).then(m => m.BlogCreateComponent)
 },
+{
+  path: 'admin/blogs/edit/:id',
+  loadComponent: () =>
+    import(
+      './features/admin/pages/blog-edit/blog-edit'
+    ).then(m => m.BlogEditComponent)
+},
   { path: '**', redirectTo: '' }
 ];
