@@ -1,0 +1,114 @@
+@if (loading) {
+  <div class="article-state">
+    <div class="loader"></div>
+    <p>Loading article...</p>
+  </div>
+}
+
+@if (errorMessage) {
+  <div class="article-state error">
+    <h2>Article not found</h2>
+    <p>{{ errorMessage }}</p>
+
+    <a routerLink="/blog"> ← Back to Blogs </a>
+  </div>
+}
+
+@if (blog && !loading) {
+  <article class="article-page">
+    <div class="article-container">
+      <!-- Back -->
+
+      <a routerLink="/blog" class="back-link"> ← Back to articles </a>
+
+      <!-- Header -->
+
+      <header class="article-header">
+        <span class="category">
+          {{ blog.category }}
+        </span>
+
+        <h1>
+          {{ blog.title }}
+        </h1>
+
+        <p class="excerpt">
+          {{ blog.excerpt }}
+        </p>
+
+        <div class="article-meta">
+          <span>
+            By <strong>{{ blog.author }}</strong>
+          </span>
+
+          <span class="separator">•</span>
+
+          <span>
+            {{ blog.createdAt | date: 'mediumDate' }}
+          </span>
+
+          <span class="separator">•</span>
+
+          <span> 6 min read </span>
+        </div>
+      </header>
+
+      <!-- Featured Image -->
+
+      @if (blog.featuredImage) {
+        <div class="featured-image">
+          <img [src]="blog.featuredImage" [alt]="blog.title" />
+        </div>
+      }
+
+      <!-- Article -->
+
+      <div class="article-layout">
+        <main class="article-content">
+          <div class="content" [innerHTML]="renderedContent"></div>
+        </main>
+
+        <!-- Right side -->
+
+        <aside class="article-sidebar">
+          <div class="sidebar-box">
+            <h3>About this article</h3>
+
+            <div class="sidebar-item">
+              <span>Category</span>
+              <strong>{{ blog.category }}</strong>
+            </div>
+
+            <div class="sidebar-item">
+              <span>Author</span>
+              <strong>{{ blog.author }}</strong>
+            </div>
+
+            <div class="sidebar-item">
+              <span>Published</span>
+              <strong>
+                {{ blog.createdAt | date: 'mediumDate' }}
+              </strong>
+            </div>
+          </div>
+
+          <div class="sidebar-box">
+            <h3>Tags</h3>
+
+            <div class="tags">
+              @for (tag of blog.tags; track tag) {
+                <span> #{{ tag }} </span>
+              }
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <!-- Bottom -->
+
+      <div class="article-footer">
+        <a routerLink="/blog" class="all-articles"> ← View all articles </a>
+      </div>
+    </div>
+  </article>
+}
