@@ -1,0 +1,618 @@
+<section class="create-page">
+
+  <!-- ==========================================
+       PAGE HEADER
+  =========================================== -->
+
+  <div class="page-header">
+
+    <div>
+
+      <a
+        routerLink="/admin/blogs"
+        class="back-link"
+      >
+        ← Back to Blogs
+      </a>
+
+      <span class="eyebrow">
+        CONTENT MANAGEMENT
+      </span>
+
+      <h1>
+        Create Article
+      </h1>
+
+      <p>
+        Write, preview and publish a new MyTechArea article.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- ==========================================
+       ERROR MESSAGE
+  =========================================== -->
+
+  @if (errorMessage) {
+
+    <div class="error-message">
+
+      <span class="error-icon">
+        !
+      </span>
+
+      <span>
+        {{ errorMessage }}
+      </span>
+
+    </div>
+
+  }
+
+
+  <!-- ==========================================
+       MAIN FORM
+  ========================================== -->
+
+  <form
+    [formGroup]="blogForm"
+    (ngSubmit)="createBlog()"
+    class="blog-form"
+  >
+
+
+    <!-- ========================================
+         LEFT / MAIN CONTENT
+    ========================================= -->
+
+    <div class="form-main">
+
+
+      <!-- ======================================
+           ARTICLE TITLE
+      ======================================= -->
+
+      <div class="form-card">
+
+        <div class="field-header">
+
+          <div>
+
+            <label for="title">
+              Article Title
+            </label>
+
+            <p>
+              Give your article a clear and meaningful title.
+            </p>
+
+          </div>
+
+          <span class="required">
+            Required
+          </span>
+
+        </div>
+
+
+        <input
+          id="title"
+          type="text"
+          formControlName="title"
+          placeholder="e.g. Understanding Angular HTTP Interceptors"
+        />
+
+
+        @if (
+          blogForm.controls.title.touched &&
+          blogForm.controls.title.invalid
+        ) {
+
+          <small class="validation-error">
+            Title is required and must contain at least 5 characters.
+          </small>
+
+        }
+
+      </div>
+
+
+      <!-- ======================================
+           SHORT DESCRIPTION
+      ======================================= -->
+
+      <div class="form-card">
+
+        <div class="field-header">
+
+          <div>
+
+            <label for="excerpt">
+              Short Description
+            </label>
+
+            <p>
+              A short summary that will appear on the blog listing.
+            </p>
+
+          </div>
+
+          <span class="optional">
+            300 characters max
+          </span>
+
+        </div>
+
+
+        <textarea
+          id="excerpt"
+          rows="4"
+          maxlength="300"
+          formControlName="excerpt"
+          placeholder="Learn how Angular HTTP interceptors work and how to use them for authentication, logging and error handling."
+        ></textarea>
+
+
+        <div class="character-count">
+
+          {{ blogForm.controls.excerpt.value.length }}/300
+
+        </div>
+
+
+        @if (
+          blogForm.controls.excerpt.touched &&
+          blogForm.controls.excerpt.invalid
+        ) {
+
+          <small class="validation-error">
+            Short description is required.
+          </small>
+
+        }
+
+      </div>
+
+
+      <!-- ======================================
+           ARTICLE CONTENT
+      ======================================= -->
+
+      <div class="form-card editor-card">
+
+
+        <!-- EDITOR HEADER -->
+
+        <div class="content-header">
+
+          <div>
+
+            <label for="content">
+              Article Content
+            </label>
+
+            <p>
+              Write your article using Markdown.
+            </p>
+
+          </div>
+
+          <span class="markdown-badge">
+            Markdown
+          </span>
+
+        </div>
+
+
+        <!-- EDITOR TOOLBAR -->
+
+        <div class="editor-toolbar">
+
+          <span>
+            MARKDOWN EDITOR
+          </span>
+
+          <span>
+            LIVE PREVIEW
+          </span>
+
+        </div>
+
+
+        <!-- ====================================
+             EDITOR + PREVIEW
+        ===================================== -->
+
+        <div class="markdown-editor">
+
+
+          <!-- ==================================
+               MARKDOWN EDITOR
+          =================================== -->
+
+          <div class="editor-panel">
+
+            <textarea
+              id="content"
+              formControlName="content"
+              (input)="updatePreview()"
+              placeholder="# Angular HTTP Interceptors
+
+Angular HTTP interceptors allow us to intercept HTTP requests.
+
+## Why use interceptors?
+
+Interceptors are useful for:
+
+- Authentication
+- Logging
+- Error handling
+
+## Example
+
+Write your TypeScript code here.
+
+## Conclusion
+
+Interceptors make Angular applications easier to maintain."
+            ></textarea>
+
+          </div>
+
+
+          <!-- ==================================
+               LIVE PREVIEW
+          =================================== -->
+
+          <div class="preview-panel">
+
+            <div class="preview-label">
+              LIVE PREVIEW
+            </div>
+
+
+            @if (previewHtml) {
+
+              <article
+                class="markdown-preview"
+                [innerHTML]="previewHtml"
+              ></article>
+
+            }
+            @else {
+
+              <div class="preview-empty">
+
+                <div class="preview-icon">
+                  ✦
+                </div>
+
+                <h3>
+                  Your preview will appear here
+                </h3>
+
+                <p>
+                  Start writing Markdown on the left.
+                </p>
+
+              </div>
+
+            }
+
+          </div>
+
+        </div>
+
+
+        <!-- CONTENT VALIDATION -->
+
+        @if (
+          blogForm.controls.content.touched &&
+          blogForm.controls.content.invalid
+        ) {
+
+          <div class="content-error">
+            Article content must contain at least 20 characters.
+          </div>
+
+        }
+
+      </div>
+
+    </div>
+
+
+    <!-- ========================================
+         RIGHT SIDEBAR
+    ========================================= -->
+
+    <aside class="form-sidebar">
+
+
+      <!-- ======================================
+           PUBLISH CARD
+      ======================================= -->
+
+      <div class="sidebar-card publish-card">
+
+        <div class="sidebar-title">
+
+          <div>
+
+            <h3>
+              Publish
+            </h3>
+
+            <p>
+              Control the visibility of your article.
+            </p>
+
+          </div>
+
+          <span class="publish-icon">
+            ✓
+          </span>
+
+        </div>
+
+
+        <label for="status">
+          Status
+        </label>
+
+
+        <select
+          id="status"
+          formControlName="status"
+        >
+
+          <option value="draft">
+            Draft
+          </option>
+
+          <option value="published">
+            Published
+          </option>
+
+        </select>
+
+
+        <button
+          type="submit"
+          class="publish-button"
+          [disabled]="loading"
+        >
+
+          @if (loading) {
+
+            <span class="button-spinner"></span>
+
+            <span>
+              Saving...
+            </span>
+
+          }
+          @else {
+
+            <span>
+              Create Article
+            </span>
+
+            <span>
+              →
+            </span>
+
+          }
+
+        </button>
+
+      </div>
+
+
+      <!-- ======================================
+           ARTICLE DETAILS
+      ======================================= -->
+
+      <div class="sidebar-card">
+
+
+        <div class="sidebar-title">
+
+          <div>
+
+            <h3>
+              Article Details
+            </h3>
+
+            <p>
+              Configure your article information.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- CATEGORY -->
+
+        <div class="sidebar-field">
+
+          <label for="category">
+            Category
+          </label>
+
+
+          <select
+            id="category"
+            formControlName="category"
+          >
+
+            <option value="Angular">
+              Angular
+            </option>
+
+            <option value="AWS">
+              AWS
+            </option>
+
+            <option value="Terraform">
+              Terraform
+            </option>
+
+            <option value="JavaScript">
+              JavaScript
+            </option>
+
+            <option value="TypeScript">
+              TypeScript
+            </option>
+
+            <option value="DevOps">
+              DevOps
+            </option>
+
+            <option value="CSS">
+              CSS
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <!-- AUTHOR -->
+
+        <div class="sidebar-field">
+
+          <label for="author">
+            Author
+          </label>
+
+
+          <input
+            id="author"
+            type="text"
+            formControlName="author"
+          />
+
+        </div>
+
+
+        <!-- SLUG -->
+
+        <div class="sidebar-field">
+
+          <label for="slug">
+            URL Slug
+          </label>
+
+
+          <div class="slug-row">
+
+            <input
+              id="slug"
+              type="text"
+              formControlName="slug"
+              placeholder="angular-http-interceptors"
+            />
+
+
+            <button
+              type="button"
+              (click)="generateSlug()"
+              title="Generate slug from title"
+            >
+              ↻
+            </button>
+
+          </div>
+
+
+          <small class="field-hint">
+            Used in the blog URL.
+          </small>
+
+        </div>
+
+
+        <!-- FEATURED IMAGE -->
+
+        <div class="sidebar-field">
+
+          <label for="featuredImage">
+            Featured Image URL
+          </label>
+
+
+          <input
+            id="featuredImage"
+            type="text"
+            formControlName="featuredImage"
+            placeholder="https://example.com/image.jpg"
+          />
+
+
+          <small class="field-hint">
+            Add an image URL for your article.
+          </small>
+
+        </div>
+
+
+        <!-- IMAGE PREVIEW -->
+
+        @if (featuredImageUrl) {
+
+          <div class="image-preview">
+
+            <img
+              [src]="featuredImageUrl"
+              alt="Featured image preview"
+            />
+
+            <span>
+              Featured Image Preview
+            </span>
+
+          </div>
+
+        }
+
+      </div>
+
+
+      <!-- ======================================
+           WRITING TIP
+      ======================================= -->
+
+      <div class="tips-card">
+
+        <div class="tips-icon">
+          ✦
+        </div>
+
+
+        <div>
+
+          <strong>
+            Writing tip
+          </strong>
+
+
+          <p>
+            Use headings, lists and code blocks
+            to make technical articles easier to read.
+          </p>
+
+        </div>
+
+      </div>
+
+    </aside>
+
+  </form>
+
+</section>

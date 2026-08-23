@@ -7,6 +7,7 @@ import { BlogComponent } from './pages/blog.component';
 import { Skills } from './pages/skills/skills';
 import { Services } from './pages/services/services';
 import { Projects } from './pages/projects/projects';
+import { authGuard } from './core/guards/auth.guard';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -39,5 +40,30 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/blog-details/blog-details').then((m) => m.BlogDetails),
   },
+  {
+    path: 'admin',
+
+    canActivate: [
+      authGuard
+    ],
+
+    loadComponent: () =>
+      import('./features/blog/pages/admin/admin')
+        .then(m => m.AdminComponent)
+  },
+  {
+  path: 'admin/blogs',
+  loadComponent: () =>
+    import(
+      './features/admin/pages/blog-management/blog-management'
+    ).then(m => m.BlogManagementComponent)
+},
+{
+  path: 'admin/blogs/create',
+  loadComponent: () =>
+    import(
+      './features/admin/pages/blog-create/blog-create'
+    ).then(m => m.BlogCreateComponent)
+},
   { path: '**', redirectTo: '' }
 ];

@@ -1,0 +1,357 @@
+<div class="admin-layout">
+
+  <!-- Sidebar -->
+
+  <aside class="sidebar">
+
+    <div class="sidebar-logo">
+      <div class="logo-mark">M</div>
+
+      <div>
+        <strong>MyTechArea</strong>
+        <span>ADMIN PANEL</span>
+      </div>
+    </div>
+
+
+    <nav class="navigation">
+
+      <div class="nav-section">
+        MAIN
+      </div>
+
+      <a
+        class="nav-item active"
+        (click)="setActiveMenu('dashboard')"
+      >
+        <span class="nav-icon">⌂</span>
+        Dashboard
+      </a>
+
+
+      <a
+        class="nav-item"
+        (click)="setActiveMenu('blogs')"
+      >
+        <span class="nav-icon">▤</span>
+        Blogs
+
+        <span class="menu-count">
+          {{ stats.totalBlogs }}
+        </span>
+      </a>
+
+
+      <div class="nav-section">
+        MANAGEMENT
+      </div>
+
+
+      <a
+        class="nav-item"
+        (click)="setActiveMenu('users')"
+      >
+        <span class="nav-icon">♙</span>
+        Users
+
+        <span class="menu-count">
+          {{ stats.users }}
+        </span>
+      </a>
+
+
+      <a
+        class="nav-item"
+        (click)="setActiveMenu('settings')"
+      >
+        <span class="nav-icon">⚙</span>
+        Settings
+      </a>
+
+    </nav>
+
+
+    <div class="sidebar-bottom">
+
+      <div class="user-mini">
+
+        <div class="avatar">
+          NK
+        </div>
+
+        <div>
+          <strong>Niraj Kumar</strong>
+          <span>Administrator</span>
+        </div>
+
+      </div>
+
+
+      <button
+        class="logout-btn"
+        (click)="logout()"
+      >
+        <span>↪</span>
+        Logout
+      </button>
+
+    </div>
+
+  </aside>
+
+
+  <!-- Main -->
+
+  <main class="admin-main">
+
+    <!-- Top Bar -->
+
+    <header class="topbar">
+
+      <div>
+
+        <span class="breadcrumb">
+          Admin / Dashboard
+        </span>
+
+        <h1>
+          Dashboard
+        </h1>
+
+      </div>
+
+
+      <div class="topbar-actions">
+
+        <a
+          routerLink="/"
+          class="view-site"
+        >
+          View Website ↗
+        </a>
+
+        <div class="notification">
+          ♧
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <!-- Content -->
+
+    <section class="dashboard-content">
+
+      <div class="welcome">
+
+        <div>
+
+          <span class="welcome-label">
+            GOOD TO SEE YOU
+          </span>
+
+          <h2>
+            Welcome back, Niraj 👋
+          </h2>
+
+          <p>
+            Manage your articles, users and MyTechArea content
+            from one place.
+          </p>
+
+        </div>
+
+
+        <a
+          routerLink="/admin/blogs/create"
+          class="primary-btn"
+        >
+          + Create Blog
+        </a>
+
+      </div>
+
+
+      <!-- Stats -->
+
+      <div class="stats-grid">
+
+        <div class="stat-card">
+
+          <div class="stat-icon blue">
+            ▤
+          </div>
+
+          <div>
+            <span>Total Articles</span>
+            <strong>{{ stats.totalBlogs }}</strong>
+          </div>
+
+          <small>
+            All articles
+          </small>
+
+        </div>
+
+
+        <div class="stat-card">
+
+          <div class="stat-icon green">
+            ✓
+          </div>
+
+          <div>
+            <span>Published</span>
+            <strong>{{ stats.publishedBlogs }}</strong>
+          </div>
+
+          <small>
+            Live articles
+          </small>
+
+        </div>
+
+
+        <div class="stat-card">
+
+          <div class="stat-icon orange">
+            ◷
+          </div>
+
+          <div>
+            <span>Drafts</span>
+            <strong>{{ stats.draftBlogs }}</strong>
+          </div>
+
+          <small>
+            Work in progress
+          </small>
+
+        </div>
+
+
+        <div class="stat-card">
+
+          <div class="stat-icon purple">
+            ♙
+          </div>
+
+          <div>
+            <span>Users</span>
+            <strong>{{ stats.users }}</strong>
+          </div>
+
+          <small>
+            Registered users
+          </small>
+
+        </div>
+
+      </div>
+
+
+      <!-- Recent Articles -->
+
+      <section class="recent-section">
+
+        <div class="section-header">
+
+          <div>
+            <span class="section-label">
+              CONTENT
+            </span>
+
+            <h2>
+              Recent Articles
+            </h2>
+          </div>
+
+          <a
+            routerLink="/admin/blogs"
+            class="view-all"
+          >
+            View all →
+          </a>
+
+        </div>
+
+
+        <div class="article-table">
+
+          <div class="table-header">
+
+            <span>
+              ARTICLE
+            </span>
+
+            <span>
+              CATEGORY
+            </span>
+
+            <span>
+              STATUS
+            </span>
+
+            <span>
+              DATE
+            </span>
+
+          </div>
+
+
+          @for (blog of recentBlogs; track blog.title) {
+
+            <div class="table-row">
+
+              <div class="article-name">
+
+                <div class="article-avatar">
+                  {{ blog.category.charAt(0) }}
+                </div>
+
+                <div>
+                  <strong>
+                    {{ blog.title }}
+                  </strong>
+
+                  <span>
+                    MyTechArea Blog
+                  </span>
+                </div>
+
+              </div>
+
+
+              <span class="category">
+                {{ blog.category }}
+              </span>
+
+
+              <span
+                class="status"
+                [class.published]="blog.status === 'Published'"
+                [class.draft]="blog.status === 'Draft'"
+              >
+                <i></i>
+                {{ blog.status }}
+              </span>
+
+
+              <span class="date">
+                {{ blog.date }}
+              </span>
+
+            </div>
+
+          }
+
+        </div>
+
+      </section>
+
+    </section>
+
+  </main>
+
+</div>

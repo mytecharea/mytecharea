@@ -33,4 +33,17 @@ export class BlogService {
   );
 
 }
+deleteBlog(id: string): Observable<any> {
+  return this.http.delete(
+    `${this.apiUrl}/${id}`
+  );
+}
+createBlog(blog: any): Observable<any> {
+
+  return this.http.post(
+    this.apiUrl,
+    blog
+  );
+
+}
 }
