@@ -13,7 +13,12 @@ export const routes: Routes = [
   { path: 'projects', component: Projects },
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'blog', component: BlogComponent },
+  {
+  path: 'blog',
+  loadComponent: () =>
+    import('./features/blog/pages/blog-list/blog-list')
+      .then(m => m.BlogList)
+},
   { path: 'skills', component: Skills },
   { path: 'services', component: Services },
    {

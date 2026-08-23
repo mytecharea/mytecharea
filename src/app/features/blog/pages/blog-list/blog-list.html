@@ -1,0 +1,289 @@
+<section class="blog-page">
+
+  <!-- Hero -->
+  <header class="blog-hero">
+
+    <div class="hero-content">
+
+      <span class="eyebrow">
+        MYTECHAREA BLOG
+      </span>
+
+      <h1>
+        Engineering ideas,
+        <span>explained simply.</span>
+      </h1>
+
+      <p>
+        Practical tutorials, architecture guides and real-world
+        experiences covering Angular, AWS, Terraform,
+        TypeScript and modern web development.
+      </p>
+
+      <!-- Categories -->
+      <div class="categories">
+
+        <button class="category-btn active">
+          All
+        </button>
+
+        <button class="category-btn">
+          Angular
+        </button>
+
+        <button class="category-btn">
+          AWS
+        </button>
+
+        <button class="category-btn">
+          Terraform
+        </button>
+
+        <button class="category-btn">
+          JavaScript
+        </button>
+
+        <button class="category-btn">
+          DevOps
+        </button>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- Loading -->
+  @if (loading) {
+
+    <div class="loading">
+      Loading articles...
+    </div>
+
+  }
+
+
+  <!-- Error -->
+  @if (errorMessage) {
+
+    <div class="error-message">
+      {{ errorMessage }}
+    </div>
+
+  }
+
+
+  <!-- Featured Blog -->
+  @if (!loading && blogs.length > 0) {
+
+    <section class="featured-section">
+
+      <div class="section-heading">
+
+        <div>
+          <span class="section-label">
+            FEATURED
+          </span>
+
+          <h2>
+            Featured Article
+          </h2>
+        </div>
+
+      </div>
+
+
+      <article class="featured-card">
+
+        <div class="featured-image">
+
+          @if (blogs[0].featuredImage) {
+
+            <img
+              [src]="blogs[0].featuredImage"
+              [alt]="blogs[0].title"
+            />
+
+          } @else {
+
+            <div class="image-placeholder">
+              <span>{{ blogs[0].category }}</span>
+            </div>
+
+          }
+
+        </div>
+
+
+        <div class="featured-content">
+
+          <div class="article-category">
+            {{ blogs[0].category }}
+          </div>
+
+          <h3>
+            {{ blogs[0].title }}
+          </h3>
+
+          <p>
+            {{ blogs[0].excerpt }}
+          </p>
+
+
+          <div class="article-info">
+
+            <span>
+              By {{ blogs[0].author }}
+            </span>
+
+            <span>
+              {{ blogs[0].createdAt | date:'mediumDate' }}
+            </span>
+
+          </div>
+
+
+          <a
+            class="read-more"
+            [routerLink]="['/blog', blogs[0].slug]"
+          >
+            Read Article
+            <span>→</span>
+          </a>
+
+        </div>
+
+      </article>
+
+    </section>
+
+  }
+
+
+  <!-- Latest Articles -->
+  @if (!loading && blogs.length > 1) {
+
+    <section class="latest-section">
+
+      <div class="section-heading">
+
+        <div>
+
+          <span class="section-label">
+            EXPLORE
+          </span>
+
+          <h2>
+            Latest Articles
+          </h2>
+
+        </div>
+
+        <span class="article-count">
+          {{ blogs.length }} Articles
+        </span>
+
+      </div>
+
+
+      <div class="blog-grid">
+
+        @for (blog of blogs.slice(1); track blog._id) {
+
+          <article class="blog-card">
+
+            <!-- Image -->
+
+            <div class="card-image">
+
+              @if (blog.featuredImage) {
+
+                <img
+                  [src]="blog.featuredImage"
+                  [alt]="blog.title"
+                />
+
+              } @else {
+
+                <div class="image-placeholder">
+                  <span>{{ blog.category }}</span>
+                </div>
+
+              }
+
+              <span class="category-badge">
+                {{ blog.category }}
+              </span>
+
+            </div>
+
+
+            <!-- Content -->
+
+            <div class="card-content">
+
+              <div class="card-date">
+
+                {{ blog.createdAt | date:'mediumDate' }}
+
+              </div>
+
+
+              <h3>
+                {{ blog.title }}
+              </h3>
+
+
+              <p>
+                {{ blog.excerpt }}
+              </p>
+
+
+              <div class="card-footer">
+
+                <span class="author">
+                  {{ blog.author }}
+                </span>
+
+                <a
+                  [routerLink]="['/blog', blog.slug]"
+                  class="arrow-link"
+                >
+                  →
+                </a>
+
+              </div>
+
+            </div>
+
+          </article>
+
+        }
+
+      </div>
+
+    </section>
+
+  }
+
+
+  <!-- Empty State -->
+
+  @if (!loading && blogs.length === 0) {
+
+    <div class="empty-state">
+
+      <h2>
+        No articles yet
+      </h2>
+
+      <p>
+        New articles are coming soon.
+      </p>
+
+    </div>
+
+  }
+
+</section>
